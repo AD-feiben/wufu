@@ -7,34 +7,80 @@
   <link rel="shortcut icon" href="https://os.alipayobjects.com/rmsportal/gnJdzXznSvKHLwwziuGt.ico">
 
   <style>
+  *{
+    box-sizing: border-box;
+  }
   body,
   ul,
   li,
+  h1,
   p {
     margin: 0;
     padding: 0;
   }
 
+  body {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+    background-color: #f3f3f3;
+  }
+
+  h1 {
+    margin: 20px 0;
+    color: #999;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-radius: 4px;
+    background-color: #fff;
+  }
+
   li {
-    padding: 20px 10px;
+    width: 100%;
+    padding: 10px;
     cursor: pointer;
+    list-style: none;
+    border-bottom: 1px solid #f3f3f3;
   }
 
   img {
     margin-bottom: 10px;
   }
 
+  .course {
+    margin: 20px auto;
+  }
+
+  .course img {
+    max-width: 100%;
+    margin: 0;
+  }
+
   .qrcode {
     text-align: left;
+    color: #666;
   }
 
   .qrcode img {
     margin-bottom: 0;
   }
 
+  .item {
+    display: block;
+    align-items: center;
+    text-align: center;
+  }
+
   .icon {
     display: block;
-    width: 200px;
+    width: 120px;
+    margin: 0 auto 10px;
   }
 
   .modal.hide {
@@ -82,12 +128,38 @@
     min-width: 170px;
   }
 
+  @media (min-width: 768px) {
+    li {
+      width: 50%;
+    }
+    li:nth-last-of-type(2n) {
+      border-right: 1px solid #f3f3f3;
+    }
+
+    .course {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .course img {
+      max-width: 48%;
+    }
+  }
+
   </style>
 </head>
 <body>
-  <p>关注公众号<b>「前端develop」</b>了解互联网新鲜事！扫码关注</p>
+  <h1>2021年支付宝集五福小助手</h1>
+
   <div class="qrcode">
-    <img width="120px" src="https://mp.weixin.qq.com/mp/qrcode?scene=10000004&size=102&__biz=MzIyMDQyNTc3OA==&mid=100000576&idx=1&sn=4edfd528341ff36ad7c62eab66e9c285&send_time=1612338919">
+    <!-- <img width="120px" src="https://mp.weixin.qq.com/mp/qrcode?scene=10000004&size=102&__biz=MzIyMDQyNTc3OA==&mid=100000576&idx=1&sn=4edfd528341ff36ad7c62eab66e9c285&send_time=1612338919"> -->
+    <p>关注微信公众号<b>「前端develop」</b>了解互联网新鲜事！</p>
+  </div>
+
+  <div class="course">
+    <img src="./1.png">
+    <img src="./2.png">
   </div>
 
   <div class="modal hide" onclick="hideModal()">
@@ -1587,7 +1659,7 @@ for (let i = 0; i < a.channelList.length; i++) {
     const item = a.channelList[i].sourceList[j];
     const href = `https://render.alipay.com/p/c/17yq18lq3slc?source=${item.source}`;
     html += `<li>
-      <a href="${ isWeixin ? 'javascript:;' : href }">
+      <a class="item" href="${ isWeixin ? 'javascript:;' : href }">
         <img class="icon" src="${a.channelList[i].channelLogo.img}">
         ${a.channelList[i].title}
       </a>
