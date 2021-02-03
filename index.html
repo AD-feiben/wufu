@@ -38,7 +38,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     border-radius: 4px;
-    background-color: #fff;
+    background-color: #fafafa;
   }
 
   li {
@@ -53,6 +53,36 @@
     margin-bottom: 10px;
   }
 
+  .qrcode-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 0;
+    border-radius: 4px;
+    background: #fafafa;
+    box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .qrcode {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    padding: 0 20px;
+    display: flex;
+    color: #666;
+  }
+
+  .qrcode + .qrcode {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #f3f3f3;
+  }
+
+  .qrcode img {
+    width: 80px;
+    flex: 0;
+    margin: 0 10px 0 0;
+  }
+
   .course {
     margin: 20px auto;
   }
@@ -60,15 +90,6 @@
   .course img {
     max-width: 100%;
     margin: 0;
-  }
-
-  .qrcode {
-    text-align: left;
-    color: #666;
-  }
-
-  .qrcode img {
-    margin-bottom: 0;
   }
 
   .item {
@@ -136,6 +157,17 @@
       border-right: 1px solid #f3f3f3;
     }
 
+    .qrcode-wrap {
+      flex-wrap: nowrap;
+    }
+
+    .qrcode + .qrcode {
+      margin-top: 0;
+      padding-top: 0;
+      border-left: 1px solid #f3f3f3;
+      border-top: 0;
+    }
+
     .course {
       display: flex;
       justify-content: space-between;
@@ -152,10 +184,18 @@
 <body>
   <h1>2021年支付宝集五福小助手</h1>
 
-  <div class="qrcode">
-    <!-- <img width="120px" src="https://mp.weixin.qq.com/mp/qrcode?scene=10000004&size=102&__biz=MzIyMDQyNTc3OA==&mid=100000576&idx=1&sn=4edfd528341ff36ad7c62eab66e9c285&send_time=1612338919"> -->
-    <p>关注微信公众号<b>「前端develop」</b>了解互联网新鲜事！</p>
+  <div class="qrcode-wrap">
+    <div class="qrcode">
+      <img width="120px" src="https://mp.weixin.qq.com/mp/qrcode?scene=10000004&size=102&__biz=MzIyMDQyNTc3OA==&mid=100000576&idx=1&sn=4edfd528341ff36ad7c62eab66e9c285&send_time=1612338919">
+      <p>关注微信公众号<b>「前端develop」</b>了解互联网新鲜事！扫码关注</p>
+    </div>
+
+    <div class="qrcode">
+      <img src="./3.jpg" alt="i外卖券">
+      <p>扫码领打车外卖券，每餐可领！</p>
+    </div>
   </div>
+
 
   <div class="course">
     <img src="./1.png">
